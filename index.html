@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo Sim ou Não</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      position: relative;
+      width: 400px;
+      height: 300px;
+      border: 2px dashed #ccc;
+    }
+
+    button {
+      position: absolute;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    #sim {
+      left: 50px;
+      top: 100px;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #nao {
+      left: 200px;
+      top: 100px;
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quer beber amanhã?</h1>
+  <div class="buttons">
+    <button id="sim" onclick="alert('Que horas? 😄')">Sim</button>
+    <button id="nao" onmouseover="moverBotao()" onclick="moverBotao()">Não</button>
+  </div>
+
+  <script>
+    function moverBotao() {
+      const botao = document.getElementById("nao");
+      const container = document.querySelector(".buttons");
+
+      const maxX = container.clientWidth - botao.offsetWidth;
+      const maxY = container.clientHeight - botao.offsetHeight;
+
+      const novoX = Math.floor(Math.random() * maxX);
+      const novoY = Math.floor(Math.random() * maxY);
+
+      botao.style.left = novoX + "px";
+      botao.style.top = novoY + "px";
+    }
+  </script>
+
+</body>
+</html>
